@@ -1,0 +1,123 @@
+.rowNameAtlete {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.buttonNewElement {
+    border-radius: 100%;
+    background-color: green;
+    color: white;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    cursor: pointer
+}
+
+.buttonSendElement {
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.elementDetailsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.containerFlex {
+    display: flex;
+    align-items: center;
+}
+
+.elementDetail {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 200px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.selectElementType {
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 5px;
+}
+
+.recapElementContainer {
+    display: flex;
+    align-items: center;
+}
+
+.rowTableElement {
+    display: flex;
+}
+
+.cellTableElement {
+    padding: 10px;
+    border: solid 1px #333;
+    width: 20%;
+}
+
+.cellTableFirstElement {
+    padding: 10px;
+    border: solid 1px #333;
+    width: 40%;
+}
+
+.totalPoint {
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+.recapElementContainer {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-around;
+}
+
+.elementRecap {
+    margin: 0 20px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.elementRecap input {
+    height: 2rem;
+    font-size: 2rem;
+    margin-left: 5px;
+}
+
+.checkboxUnderElementActive {
+    border: 1px solid #333;
+    height: 2rem;
+    width: 2rem;
+    margin-left: 5px;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../check.png);
+    cursor: pointer;
+}
+
+.checkboxUnderElement {
+    border: 1px solid #333;
+    height: 2rem;
+    width: 2rem;
+    margin-left: 5px;
+    cursor: pointer;
+}
