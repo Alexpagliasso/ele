@@ -12,92 +12,250 @@ const DataAtlete = () => {
     const [showRecapElement, setShowRecapElement] = useState(false);
     const [showCompleteElement, setShowCompleteElement] = useState(false);
     const [elementArray, setElementArray] = useState([{
-        "name": "name jump",
-        "execution": "value jump",
-        "under": "titleUnder",
-        "goe": "goe",
-        "totalElement": "totalElement"
+        "name": "Element",
+        "value": "Value Element",
+        "goe": "G.O.E."
     }]);
     const [total, setTotal] = useState(0);
-    const [underActive, setUnderActive] = useState(false);
 
     const jump = [
         {
-            "name": "axel",
-            "value": 1.5,
-            "type": [
+            "name": "base",
+            "value": [
                 {
-                    "name": "",
-                    "value": 1
+                    "name": "Zero",
+                    "value": 0,
+                    "valueGoe2": 0,
+                    "valueGoe1": 0,
+                    "valueGoeN1": 0,
+                    "valueGoeN2": 0
                 },
                 {
-                    "name": "double",
-                    "value": 2
+                    "name": "W",
+                    "value": 0.5,
+                    "valueGoe2": 1,
+                    "valueGoe1": 0.75,
+                    "valueGoeN1": 0.25,
+                    "valueGoeN2": 0
                 },
                 {
-                    "name": "triple",
-                    "value": 3
+                    "name": "A",
+                    "value": 3,
+                    "valueGoe2": 4.5,
+                    "valueGoe1": 4,
+                    "valueGoeN1": 2,
+                    "valueGoeN2": 1.5
                 },
                 {
-                    "name": "quadruple",
-                    "value": 4
-                }
+                    "name": "A<",
+                    "value": 1.5,
+                    "valueGoe2": 2.5,
+                    "valueGoe1": 2,
+                    "valueGoeN1": 1,
+                    "valueGoeN2": 0.75
+                },
+
             ]
         },
         {
-            "name": "Salkov",
-            "value": 2,
-            "type": [
+            "name": "t",
+            "value": [
                 {
-                    "name": "",
-                    "value": 1
+                    "name": "1T",
+                    "value": 0.5,
+                    "valueGoe2": 1,
+                    "valueGoe1": 0.75,
+                    "valueGoeN1": 0.25,
+                    "valueGoeN2": 0
                 },
                 {
-                    "name": "double",
-                    "value": 2
+                    "name": "1T<",
+                    "value": 0.5,
+                    "valueGoe2": 1,
+                    "valueGoe1": 0.75,
+                    "valueGoeN1": 0.25,
+                    "valueGoeN2": 0
                 },
                 {
-                    "name": "triple",
-                    "value": 3
+                    "name": "2T",
+                    "value": 3,
+                    "valueGoe2": 4.5,
+                    "valueGoe1": 4,
+                    "valueGoeN1": 2,
+                    "valueGoeN2": 1.5
                 },
                 {
-                    "name": "quadruple",
-                    "value": 4
-                }
+                    "name": "2T<",
+                    "value": 1.5,
+                    "valueGoe2": 2.5,
+                    "valueGoe1": 2,
+                    "valueGoeN1": 1,
+                    "valueGoeN2": 0.75
+                },
+
             ]
-        },
+        },,
         {
-            "name": "Salto del 3",
-            "value": 1,
-            "type": [
+            "name": "s",
+            "value": [
                 {
-                    "name": "",
-                    "value": 1
+                    "name": "1S",
+                    "value": 0.5,
+                    "valueGoe2": 1,
+                    "valueGoe1": 0.75,
+                    "valueGoeN1": 0.25,
+                    "valueGoeN2": 0
                 },
                 {
-                    "name": "double",
-                    "value": 2
+                    "name": "1S<",
+                    "value": 0.5,
+                    "valueGoe2": 1,
+                    "valueGoe1": 0.75,
+                    "valueGoeN1": 0.25,
+                    "valueGoeN2": 0
                 },
                 {
-                    "name": "triple",
-                    "value": 3
+                    "name": "2S",
+                    "value": 3,
+                    "valueGoe2": 4.5,
+                    "valueGoe1": 4,
+                    "valueGoeN1": 2,
+                    "valueGoeN2": 1.5
                 },
                 {
-                    "name": "quadruple",
-                    "value": 4
-                }
+                    "name": "2S<",
+                    "value": 1.5,
+                    "valueGoe2": 2.5,
+                    "valueGoe1": 2,
+                    "valueGoeN1": 1,
+                    "valueGoeN2": 0.75
+                },
+
+            ]
+        },,
+        {
+            "name": "Lo",
+            "value": [
+                {
+                    "name": "1Lo",
+                    "value": 1.5,
+                    "valueGoe2": 2,
+                    "valueGoe1": 1.75,
+                    "valueGoeN1": 1.25,
+                    "valueGoeN2": 1
+                },
+                {
+                    "name": "1Lo<",
+                    "value": 0.75,
+                    "valueGoe2": 1.25,
+                    "valueGoe1": 1,
+                    "valueGoeN1": 0.5,
+                    "valueGoeN2": 0.25
+                },
+                {
+                    "name": "2Lo",
+                    "value": 5,
+                    "valueGoe2": 6.5,
+                    "valueGoe1": 6,
+                    "valueGoeN1": 4,
+                    "valueGoeN2": 2.5
+                },
+                {
+                    "name": "2Lo<",
+                    "value": 2.5,
+                    "valueGoe2": 3.5,
+                    "valueGoe1": 3,
+                    "valueGoeN1": 2,
+                    "valueGoeN2": 1.25
+                },
+
+            ]
+        },,
+        {
+            "name": "F",
+            "value": [
+                {
+                    "name": "1F",
+                    "value": 2,
+                    "valueGoe2": 2.5,
+                    "valueGoe1": 2.25,
+                    "valueGoeN1": 1.75,
+                    "valueGoeN2": 1.5
+                },
+                {
+                    "name": "1F<",
+                    "value": 1,
+                    "valueGoe2": 1.5,
+                    "valueGoe1": 1.25,
+                    "valueGoeN1": 0.75,
+                    "valueGoeN2": 0.5
+                },
+                {
+                    "name": "2T",
+                    "value": 5,
+                    "valueGoe2": 6.5,
+                    "valueGoe1": 6,
+                    "valueGoeN1": 4,
+                    "valueGoeN2": 2.5
+                },
+                {
+                    "name": "2F<",
+                    "value": 2.5,
+                    "valueGoe2": 3.5,
+                    "valueGoe1": 3,
+                    "valueGoeN1": 2,
+                    "valueGoeN2": 1.25
+                },
+
+            ]
+        },,
+        {
+            "name": "Lz",
+            "value": [
+                {
+                    "name": "1Lz",
+                    "value": 2,
+                    "valueGoe2": 2.5,
+                    "valueGoe1": 2.25,
+                    "valueGoeN1": 1.75,
+                    "valueGoeN2": 1.5
+                },
+                {
+                    "name": "1Lz<",
+                    "value": 1,
+                    "valueGoe2": 1.5,
+                    "valueGoe1": 1.25,
+                    "valueGoeN1": 0.75,
+                    "valueGoeN2": 0.5
+                },
+                {
+                    "name": "2Lz",
+                    "value": 5,
+                    "valueGoe2": 6.5,
+                    "valueGoe1": 6,
+                    "valueGoeN1": 4,
+                    "valueGoeN2": 2.5
+                },
+                {
+                    "name": "2Lz<",
+                    "value": 2.5,
+                    "valueGoe2": 3.5,
+                    "valueGoe1": 3,
+                    "valueGoeN1": 2,
+                    "valueGoeN2": 1.25
+                },
+
             ]
         }
+        
+
     ]
 
-    const addElement = (typeName, typeValue, elementName, elementValue) => {
+    const addElement = (e) => {
         //alert("hai eseguito un: " + typeName + " " + elementName + ". E hai totalizzato : " + (elementValue * typeValue) + "punti")
         setNewElement(false)
 
-        setElement({
-            "name": typeName + elementName,
-            "value": typeValue * elementValue
-        })
+        setElement(e)
         setShowWizardElement(false);
         setShowRecapElement(true);
     }
@@ -117,23 +275,38 @@ const DataAtlete = () => {
 
     const sendElement = () => {
         if (goe < 3 && goe > -3) {
-            let points = goe * element.value;
-            if(underActive === true) {
-                points = points - 0.5
-            }
             let completeElement = {
                 "name": element.name,
                 "execution": element.value,
-                "under": underActive,
                 "goe": goe,
-                "totalElement": points
             }
-            setTotal(total + points)
+
+            switch (goe) {
+                case "2":
+                     completeElement = {
+                        "name": element.name,
+                        "value": element.valueGoe2,
+                        "goe": goe
+                    }
+                    console.log(total)
+                    console.log(completeElement.value)
+                    setTotal(total + element.valueGoe2)
+                    break
+                case "1":
+                     completeElement = {
+                        "name": element.name,
+                        "value": element.valueGoe1,
+                        "goe": goe
+                    }
+                    setTotal(total + element.valueGoe1)
+                    break
+            }
+
+
             setElementArray([...elementArray, completeElement])
             setShowWizardElement(false);
             setShowRecapElement(false);
             setShowCompleteElement(true);
-            setUnderActive(false)
             setGoe(3);
         } else {
             alert("Error in the insert data")
@@ -146,7 +319,7 @@ const DataAtlete = () => {
 
     return (
         <div>
-            <div className="rowNameAtlete">
+            <div className="rowNameAtlete" hidden>
                 <label>Name</label>
                 <input type="text"></input>
                 <label>Surname</label>
@@ -177,10 +350,10 @@ const DataAtlete = () => {
                                 return (
                                     <div className="containerFlex">
                                         <div>
-                                            {j.type.map((t) => {
+                                            {j.value.map((e) => {
                                                 return (
                                                     <div className="elementDetail"
-                                                        onClick={() => addElement(t.name, t.value, j.name, j.value)}>{t.name}{j.name}</div>
+                                                        onClick={() => addElement(e)}>{e.name}</div>
                                                 )
                                             })}
                                         </div>
@@ -201,23 +374,15 @@ const DataAtlete = () => {
                         Element: {element.name}
                     </p>
                     <div className="elementRecap">
-                    <label>Goe: </label>
-                    <input
-                        min="-2"
-                        max="2"
-                        type="number"
-                        onChange={e => cahngeGOE(e)}>
-                    </input>
+                        <label>Goe: </label>
+                        <input
+                            min="-2"
+                            max="2"
+                            type="number"
+                            onChange={e => cahngeGOE(e)}>
+                        </input>
                     </div>
-                    <div className="elementRecap">
-                    <label>Under:</label>
-                    {(underActive === true ? 
-                    <div className="checkboxUnderElementActive"
-                    onClick={() => setUnderActive(!underActive)}></div>: 
-                     <div className="checkboxUnderElement"
-                     onClick={() => setUnderActive(!underActive)}></div>
-                     )}
-                    </div>
+                   
                     <div
                         onClick={() => sendElement()} className="buttonSendElement">Send</div>
 
@@ -237,17 +402,11 @@ const DataAtlete = () => {
                                         {ele.name}
                                     </div>
                                     <div className="cellTableElement">
-                                        {ele.execution}
-                                    </div>
-                                    <div className="cellTableElement">
-                                        {(ele.under === "titleUnder" ? "Under" : (ele.under === true) ? "Yes" : "No")}
+                                        {ele.value}
                                     </div>
                                     <div className="cellTableElement">
                                         {ele.goe}
                                     </div>
-                                    <div className="cellTableElement">
-                                        {ele.totalElement}
-                                        </div>
                                 </div>
                             )
                         })}
@@ -255,7 +414,7 @@ const DataAtlete = () => {
                             Total: {total}
                         </div>
                     </div> :
-                    <div>Add firstElement</div>)
+                    <div></div>)
                 }
             </div>
 

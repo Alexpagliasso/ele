@@ -11,9 +11,15 @@
     width: 50px;
     line-height: 50px;
     font-size: 30px;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    margin: 30px auto;
     cursor: pointer
+}
+
+.wizardElements,
+.wizardElements select {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    margin-left: 10px;
 }
 
 .buttonSendElement {
@@ -45,7 +51,7 @@
     color: white;
     border-radius: 5px;
     padding: 10px;
-    min-width: 200px;
+    min-width: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
     cursor: pointer;
@@ -101,23 +107,4 @@
     height: 2rem;
     font-size: 2rem;
     margin-left: 5px;
-}
-
-.checkboxUnderElementActive {
-    border: 1px solid #333;
-    height: 2rem;
-    width: 2rem;
-    margin-left: 5px;
-    background-position: center;
-    background-size: contain;
-    background-image: url(../check.png);
-    cursor: pointer;
-}
-
-.checkboxUnderElement {
-    border: 1px solid #333;
-    height: 2rem;
-    width: 2rem;
-    margin-left: 5px;
-    cursor: pointer;
 }
