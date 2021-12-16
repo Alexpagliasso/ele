@@ -1,0 +1,42 @@
+ [{
+         "name": "StSqB",
+         "value": 1,
+         "valueGoe2": 1.5,
+         "valueGoe1": 1.25,
+         "valueGoeN1": 0.5,
+         "valueGoeN2": 0.25
+     },
+     {
+         "name": "StSq1",
+         "value": 1.5,
+         "valueGoe2": 2,
+         "valueGoe1": 1.75,
+         "valueGoeN1": 0.75,
+         "valueGoeN2": 0.5
+     },
+     {
+         "name": "StSq2",
+         "value": 2,
+         "valueGoe2": 2.5,
+         "valueGoe1": 2.25,
+         "valueGoeN1": 1.5,
+         "valueGoeN2": 1.25
+     },
+     {
+         "name": "StSq3",
+         "value": 2.5,
+         "valueGoe2": 3,
+         "valueGoe1": 2.75,
+         "valueGoeN1": 2.25,
+         "valueGoeN2": 2
+     },
+     {
+         "name": "StSq4",
+         "value": 3,
+         "valueGoe2": 3.5,
+         "valueGoe1": 3.25,
+         "valueGoeN1": 2.75,
+         "valueGoeN2": 2.5
+     }
+
+ ]

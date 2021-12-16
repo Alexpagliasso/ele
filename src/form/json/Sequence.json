@@ -1,0 +1,11 @@
+{
+    "name": "Choreographinc Sequences",
+    "value": {
+        "name": "ChSq",
+        "value": 1,
+        "valueGoe2": 2,
+        "valueGoe1": 1.5,
+        "valueGoeN1": 0.5,
+        "valueGoeN2": 0.25
+    }
+}

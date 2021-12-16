@@ -57,6 +57,10 @@
     cursor: pointer;
 }
 
+.elementDetail:hover {
+    background-color: rgba(9, 9, 114, 0.877);
+}
+
 .selectElementType {
     padding: 10px;
     background-color: blueviolet;
@@ -94,6 +98,10 @@
     display: flex;
     margin-bottom: 20px;
     justify-content: space-around;
+}
+
+.elementsCompleted {
+    margin-top: 20px;
 }
 
 .elementRecap {

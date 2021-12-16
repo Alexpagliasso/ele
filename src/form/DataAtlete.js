@@ -1,7 +1,9 @@
 import React from "react";
 import './dataAtlete.css';
 import { useState } from "react";
-
+import Jump from "./json/Jump.json";
+import Sequence from "./json/Sequence.json";
+import StepSequence from "./json/StepSequences.json"
 
 const DataAtlete = () => {
     const [newElement, setNewElement] = useState(" ");
@@ -18,241 +20,11 @@ const DataAtlete = () => {
     }]);
     const [total, setTotal] = useState(0);
 
-    const jump = [
-        {
-            "name": "base",
-            "value": [
-                {
-                    "name": "Zero",
-                    "value": 0,
-                    "valueGoe2": 0,
-                    "valueGoe1": 0,
-                    "valueGoeN1": 0,
-                    "valueGoeN2": 0
-                },
-                {
-                    "name": "W",
-                    "value": 0.5,
-                    "valueGoe2": 1,
-                    "valueGoe1": 0.75,
-                    "valueGoeN1": 0.25,
-                    "valueGoeN2": 0
-                },
-                {
-                    "name": "A",
-                    "value": 3,
-                    "valueGoe2": 4.5,
-                    "valueGoe1": 4,
-                    "valueGoeN1": 2,
-                    "valueGoeN2": 1.5
-                },
-                {
-                    "name": "A<",
-                    "value": 1.5,
-                    "valueGoe2": 2.5,
-                    "valueGoe1": 2,
-                    "valueGoeN1": 1,
-                    "valueGoeN2": 0.75
-                },
-
-            ]
-        },
-        {
-            "name": "t",
-            "value": [
-                {
-                    "name": "1T",
-                    "value": 0.5,
-                    "valueGoe2": 1,
-                    "valueGoe1": 0.75,
-                    "valueGoeN1": 0.25,
-                    "valueGoeN2": 0
-                },
-                {
-                    "name": "1T<",
-                    "value": 0.5,
-                    "valueGoe2": 1,
-                    "valueGoe1": 0.75,
-                    "valueGoeN1": 0.25,
-                    "valueGoeN2": 0
-                },
-                {
-                    "name": "2T",
-                    "value": 3,
-                    "valueGoe2": 4.5,
-                    "valueGoe1": 4,
-                    "valueGoeN1": 2,
-                    "valueGoeN2": 1.5
-                },
-                {
-                    "name": "2T<",
-                    "value": 1.5,
-                    "valueGoe2": 2.5,
-                    "valueGoe1": 2,
-                    "valueGoeN1": 1,
-                    "valueGoeN2": 0.75
-                },
-
-            ]
-        },,
-        {
-            "name": "s",
-            "value": [
-                {
-                    "name": "1S",
-                    "value": 0.5,
-                    "valueGoe2": 1,
-                    "valueGoe1": 0.75,
-                    "valueGoeN1": 0.25,
-                    "valueGoeN2": 0
-                },
-                {
-                    "name": "1S<",
-                    "value": 0.5,
-                    "valueGoe2": 1,
-                    "valueGoe1": 0.75,
-                    "valueGoeN1": 0.25,
-                    "valueGoeN2": 0
-                },
-                {
-                    "name": "2S",
-                    "value": 3,
-                    "valueGoe2": 4.5,
-                    "valueGoe1": 4,
-                    "valueGoeN1": 2,
-                    "valueGoeN2": 1.5
-                },
-                {
-                    "name": "2S<",
-                    "value": 1.5,
-                    "valueGoe2": 2.5,
-                    "valueGoe1": 2,
-                    "valueGoeN1": 1,
-                    "valueGoeN2": 0.75
-                },
-
-            ]
-        },,
-        {
-            "name": "Lo",
-            "value": [
-                {
-                    "name": "1Lo",
-                    "value": 1.5,
-                    "valueGoe2": 2,
-                    "valueGoe1": 1.75,
-                    "valueGoeN1": 1.25,
-                    "valueGoeN2": 1
-                },
-                {
-                    "name": "1Lo<",
-                    "value": 0.75,
-                    "valueGoe2": 1.25,
-                    "valueGoe1": 1,
-                    "valueGoeN1": 0.5,
-                    "valueGoeN2": 0.25
-                },
-                {
-                    "name": "2Lo",
-                    "value": 5,
-                    "valueGoe2": 6.5,
-                    "valueGoe1": 6,
-                    "valueGoeN1": 4,
-                    "valueGoeN2": 2.5
-                },
-                {
-                    "name": "2Lo<",
-                    "value": 2.5,
-                    "valueGoe2": 3.5,
-                    "valueGoe1": 3,
-                    "valueGoeN1": 2,
-                    "valueGoeN2": 1.25
-                },
-
-            ]
-        },,
-        {
-            "name": "F",
-            "value": [
-                {
-                    "name": "1F",
-                    "value": 2,
-                    "valueGoe2": 2.5,
-                    "valueGoe1": 2.25,
-                    "valueGoeN1": 1.75,
-                    "valueGoeN2": 1.5
-                },
-                {
-                    "name": "1F<",
-                    "value": 1,
-                    "valueGoe2": 1.5,
-                    "valueGoe1": 1.25,
-                    "valueGoeN1": 0.75,
-                    "valueGoeN2": 0.5
-                },
-                {
-                    "name": "2T",
-                    "value": 5,
-                    "valueGoe2": 6.5,
-                    "valueGoe1": 6,
-                    "valueGoeN1": 4,
-                    "valueGoeN2": 2.5
-                },
-                {
-                    "name": "2F<",
-                    "value": 2.5,
-                    "valueGoe2": 3.5,
-                    "valueGoe1": 3,
-                    "valueGoeN1": 2,
-                    "valueGoeN2": 1.25
-                },
-
-            ]
-        },,
-        {
-            "name": "Lz",
-            "value": [
-                {
-                    "name": "1Lz",
-                    "value": 2,
-                    "valueGoe2": 2.5,
-                    "valueGoe1": 2.25,
-                    "valueGoeN1": 1.75,
-                    "valueGoeN2": 1.5
-                },
-                {
-                    "name": "1Lz<",
-                    "value": 1,
-                    "valueGoe2": 1.5,
-                    "valueGoe1": 1.25,
-                    "valueGoeN1": 0.75,
-                    "valueGoeN2": 0.5
-                },
-                {
-                    "name": "2Lz",
-                    "value": 5,
-                    "valueGoe2": 6.5,
-                    "valueGoe1": 6,
-                    "valueGoeN1": 4,
-                    "valueGoeN2": 2.5
-                },
-                {
-                    "name": "2Lz<",
-                    "value": 2.5,
-                    "valueGoe2": 3.5,
-                    "valueGoe1": 3,
-                    "valueGoeN1": 2,
-                    "valueGoeN2": 1.25
-                },
-
-            ]
-        }
-        
-
-    ]
+    let jump = Jump
+    let sequence = Sequence
+    let stepSequence = StepSequence
 
     const addElement = (e) => {
-        //alert("hai eseguito un: " + typeName + " " + elementName + ". E hai totalizzato : " + (elementValue * typeValue) + "punti")
         setNewElement(false)
 
         setElement(e)
@@ -283,7 +55,7 @@ const DataAtlete = () => {
 
             switch (goe) {
                 case "2":
-                     completeElement = {
+                    completeElement = {
                         "name": element.name,
                         "value": element.valueGoe2,
                         "goe": goe
@@ -293,12 +65,36 @@ const DataAtlete = () => {
                     setTotal(total + element.valueGoe2)
                     break
                 case "1":
-                     completeElement = {
+                    completeElement = {
                         "name": element.name,
                         "value": element.valueGoe1,
                         "goe": goe
                     }
                     setTotal(total + element.valueGoe1)
+                    break
+                case "0":
+                    completeElement = {
+                        "name": element.name,
+                        "value": element.value,
+                        "goe": goe
+                    }
+                    setTotal(total + element.value)
+                    break
+                case "-1":
+                    completeElement = {
+                        "name": element.name,
+                        "value": element.valueGoeN1,
+                        "goe": goe
+                    }
+                    setTotal(total + element.valueGoeN1)
+                    break
+                case "-2":
+                    completeElement = {
+                        "name": element.name,
+                        "value": element.valueGoeN2,
+                        "goe": goe
+                    }
+                    setTotal(total + element.valueGoeN2)
                     break
             }
 
@@ -361,8 +157,29 @@ const DataAtlete = () => {
                                 )
                             })}
                         </div> :
-                        <div>
-                        </div>)}
+                        (newElement === "ChSq" ?
+                            <div className="elementDetailsContainer">
+                                <div className="containerFlex">
+                                    <div className="elementDetail"
+                                        onClick={() => addElement(sequence.value)}>{sequence.value.name}</div>
+
+                                </div>
+
+                            </div> :
+                            (newElement === "StSq" ?
+                                <div className="elementDetailsContainer">
+                                    {stepSequence.map((s) => {
+                                        return (
+                                            <div className="containerFlex">
+                                                <div className="elementDetail"
+                                                    onClick={() => addElement(s)}>{s.name}</div>
+                                            </div>
+                                        )
+                                    })}
+
+                                </div> :
+                                <div>
+                                </div>)))}
 
                 </div> :
                 <div></div>
@@ -382,7 +199,7 @@ const DataAtlete = () => {
                             onChange={e => cahngeGOE(e)}>
                         </input>
                     </div>
-                   
+
                     <div
                         onClick={() => sendElement()} className="buttonSendElement">Send</div>
 
