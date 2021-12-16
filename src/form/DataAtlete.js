@@ -9,7 +9,7 @@ const DataAtlete = () => {
     const [newElement, setNewElement] = useState(" ");
     const [showWizardElement, setShowWizardElement] = useState(false);
     const [showNewElementDetails, setShowNewElementDetails] = useState(false);
-    const [goe, setGoe] = useState(3);
+    const [goe, setGoe] = useState(0);
     const [element, setElement] = useState({});
     const [showRecapElement, setShowRecapElement] = useState(false);
     const [showCompleteElement, setShowCompleteElement] = useState(false);
@@ -19,6 +19,7 @@ const DataAtlete = () => {
         "goe": "G.O.E."
     }]);
     const [total, setTotal] = useState(0);
+    const [send, setSend] = useState(false);
 
     let jump = Jump
     let sequence = Sequence
@@ -33,7 +34,8 @@ const DataAtlete = () => {
     }
 
     const cahngeGOE = (e) => {
-        setGoe(e.target.value)
+        setGoe(e.target.value);
+        setSend(true);
     }
     const changeElementValue = (e) => {
         if (e.target.value !== "default") {
@@ -103,7 +105,8 @@ const DataAtlete = () => {
             setShowWizardElement(false);
             setShowRecapElement(false);
             setShowCompleteElement(true);
-            setGoe(3);
+            setGoe(0);
+            setSend(false)
         } else {
             alert("Error in the insert data")
         }
@@ -192,16 +195,20 @@ const DataAtlete = () => {
                     </p>
                     <div className="elementRecap">
                         <label>Goe: </label>
-                        <input
-                            min="-2"
-                            max="2"
-                            type="number"
-                            onChange={e => cahngeGOE(e)}>
-                        </input>
+                        <select onChange={e => cahngeGOE(e)}>
+                            <option default value="3">Select an option</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                            <option value="0">0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                        </select>
+                        
                     </div>
 
-                    <div
-                        onClick={() => sendElement()} className="buttonSendElement">Send</div>
+                    {(send === true ? <div
+                        onClick={() => sendElement()} className="buttonSendElement">Send</div> : <div></div>)}
+                    
 
                 </div> :
                 <div></div>
@@ -219,10 +226,10 @@ const DataAtlete = () => {
                                         {ele.name}
                                     </div>
                                     <div className="cellTableElement">
-                                        {ele.value}
+                                        {ele.goe}
                                     </div>
                                     <div className="cellTableElement">
-                                        {ele.goe}
+                                        {ele.value}
                                     </div>
                                 </div>
                             )
