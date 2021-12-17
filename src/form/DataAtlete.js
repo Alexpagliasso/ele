@@ -229,7 +229,7 @@ const DataAtlete = () => {
                                 </div> :
                                 (newElement === "CoSpin" ?
                                 <div className="elementDetailsContainer">
-                                    {spin.map((s) => {
+                                    {comboSpin.map((s) => {
                                         return (
                                             <div className="containerFlex">
                                                 <div>
