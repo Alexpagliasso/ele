@@ -1,0 +1,139 @@
+[{
+        "name": "Usp",
+        "value": [{
+                "name": "UspB",
+                "valueGoe2": 1,
+                "valueGoe1": 0.75,
+                "value": 0.5,
+                "valueGoeN1": 0.25,
+                "valueGoeN2": 0
+            },
+            {
+                "name": "Usp1",
+                "valueGoe2": 1.5,
+                "valueGoe1": 1.25,
+                "value": 1,
+                "valueGoeN1": 0.75,
+                "valueGoeN2": 0.5
+            },
+            {
+                "name": "Usp2",
+                "valueGoe2": 2,
+                "valueGoe1": 1.75,
+                "value": 1.5,
+                "valueGoeN1": 1,
+                "valueGoeN2": 0.75
+            },
+            {
+                "name": "Usp3",
+                "valueGoe2": 3,
+                "valueGoe1": 2.5,
+                "value": 2,
+                "valueGoeN1": 1.5,
+                "valueGoeN2": 1
+            },
+            {
+                "name": "Usp4",
+                "valueGoe2": 3.5,
+                "valueGoe1": 3,
+                "value": 2.5,
+                "valueGoeN1": 2,
+                "valueGoeN2": 1.25
+            }
+
+
+        ]
+    },
+    {
+        "name": "Ssp",
+        "value": [{
+                "name": "SspB",
+                "valueGoe2": 1.5,
+                "valueGoe1": 1.25,
+                "value": 1,
+                "valueGoeN1": 0.75,
+                "valueGoeN2": 0.5
+            },
+            {
+                "name": "Ssp1",
+                "valueGoe2": 2,
+                "valueGoe1": 1.75,
+                "value": 1.5,
+                "valueGoeN1": 1,
+                "valueGoeN2": 0.75
+            },
+            {
+                "name": "Ssp2",
+                "valueGoe2": 3,
+                "valueGoe1": 2.5,
+                "value": 2,
+                "valueGoeN1": 1.5,
+                "valueGoeN2": 1
+            },
+            {
+                "name": "Ssp3",
+                "valueGoe2": 3.5,
+                "valueGoe1": 3,
+                "value": 2.5,
+                "valueGoeN1": 2,
+                "valueGoeN2": 1.25
+            },
+            {
+                "name": "Ssp4",
+                "valueGoe2": 4,
+                "valueGoe1": 3.5,
+                "value": 3,
+                "valueGoeN1": 2.25,
+                "valueGoeN2": 1.5
+            }
+
+        ]
+    },
+    {
+        "name": "Csp",
+        "value": [{
+                "name": "CspB",
+                "valueGoe2": 2,
+                "valueGoe1": 1.75,
+                "value": 1.5,
+                "valueGoeN1": 1,
+                "valueGoeN2": 0.75
+            },
+            {
+                "name": "Csp1",
+                "valueGoe2": 3,
+                "valueGoe1": 2.5,
+                "value": 2,
+                "valueGoeN1": 1.5,
+                "valueGoeN2": 1
+            },
+            {
+                "name": "Csp2",
+                "valueGoe2": 3.5,
+                "valueGoe1": 3,
+                "value": 2.5,
+                "valueGoeN1": 2,
+                "valueGoeN2": 1.25
+            },
+            {
+                "name": "Csp3",
+                "valueGoe2": 4,
+                "valueGoe1": 3.5,
+                "value": 3,
+                "valueGoeN1": 2.25,
+                "valueGoeN2": 1.5
+            },
+            {
+                "name": "Csp4",
+                "valueGoe2": 4.5,
+                "valueGoe1": 4,
+                "value": 3.5,
+                "valueGoeN1": 2.5,
+                "valueGoeN2": 1.75
+            }
+
+        ]
+    }
+
+
+]

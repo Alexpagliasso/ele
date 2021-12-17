@@ -3,7 +3,9 @@ import './dataAtlete.css';
 import { useState } from "react";
 import Jump from "./json/Jump.json";
 import Sequence from "./json/Sequence.json";
-import StepSequence from "./json/StepSequences.json"
+import StepSequence from "./json/StepSequences.json";
+import Spin from "./json/Spin.json";
+import ComboSpin from "./json/ComboSpin.json";
 
 const DataAtlete = () => {
     const [newElement, setNewElement] = useState(" ");
@@ -24,10 +26,11 @@ const DataAtlete = () => {
     let jump = Jump
     let sequence = Sequence
     let stepSequence = StepSequence
+    let spin = Spin
+    let comboSpin = ComboSpin
 
     const addElement = (e) => {
         setNewElement(false)
-
         setElement(e)
         setShowWizardElement(false);
         setShowRecapElement(true);
@@ -47,60 +50,15 @@ const DataAtlete = () => {
         }
     }
 
-    const sendElement = () => {
-        if (goe < 3 && goe > -3) {
+    const sendElement = (e) => {
+        console.log(e)
+
+        if (e.name === "Fall") {
             let completeElement = {
-                "name": element.name,
-                "execution": element.value,
+                "name": e.name,
+                "execution": e.value,
                 "goe": goe,
             }
-
-            switch (goe) {
-                case "2":
-                    completeElement = {
-                        "name": element.name,
-                        "value": element.valueGoe2,
-                        "goe": goe
-                    }
-                    console.log(total)
-                    console.log(completeElement.value)
-                    setTotal(total + element.valueGoe2)
-                    break
-                case "1":
-                    completeElement = {
-                        "name": element.name,
-                        "value": element.valueGoe1,
-                        "goe": goe
-                    }
-                    setTotal(total + element.valueGoe1)
-                    break
-                case "0":
-                    completeElement = {
-                        "name": element.name,
-                        "value": element.value,
-                        "goe": goe
-                    }
-                    setTotal(total + element.value)
-                    break
-                case "-1":
-                    completeElement = {
-                        "name": element.name,
-                        "value": element.valueGoeN1,
-                        "goe": goe
-                    }
-                    setTotal(total + element.valueGoeN1)
-                    break
-                case "-2":
-                    completeElement = {
-                        "name": element.name,
-                        "value": element.valueGoeN2,
-                        "goe": goe
-                    }
-                    setTotal(total + element.valueGoeN2)
-                    break
-            }
-
-
             setElementArray([...elementArray, completeElement])
             setShowWizardElement(false);
             setShowRecapElement(false);
@@ -108,14 +66,83 @@ const DataAtlete = () => {
             setGoe(0);
             setSend(false)
         } else {
-            alert("Error in the insert data")
+            if (goe < 3 && goe > -3) {
+                let completeElement = {
+                    "name": element.name,
+                    "execution": element.value,
+                    "goe": goe,
+                }
+
+                switch (goe) {
+                    case "2":
+                        completeElement = {
+                            "name": element.name,
+                            "value": element.valueGoe2,
+                            "goe": goe
+                        }
+                        console.log(total)
+                        console.log(completeElement.value)
+                        setTotal(total + element.valueGoe2)
+                        break
+                    case "1":
+                        completeElement = {
+                            "name": element.name,
+                            "value": element.valueGoe1,
+                            "goe": goe
+                        }
+                        setTotal(total + element.valueGoe1)
+                        break
+                    case "0":
+                        completeElement = {
+                            "name": element.name,
+                            "value": element.value,
+                            "goe": goe
+                        }
+                        setTotal(total + element.value)
+                        break
+                    case "-1":
+                        completeElement = {
+                            "name": element.name,
+                            "value": element.valueGoeN1,
+                            "goe": goe
+                        }
+                        setTotal(total + element.valueGoeN1)
+                        break
+                    case "-2":
+                        completeElement = {
+                            "name": element.name,
+                            "value": element.valueGoeN2,
+                            "goe": goe
+                        }
+                        setTotal(total + element.valueGoeN2)
+                        break
+                }
+
+
+                setElementArray([...elementArray, completeElement])
+                setShowWizardElement(false);
+                setShowRecapElement(false);
+                setShowCompleteElement(true);
+                setGoe(0);
+                setSend(false)
+            } else {
+                alert("Error in the insert data")
+            }
         }
     }
 
     const pedro = (e) => {
         console.log(e)
     }
-
+    const addFall = () => {
+        console.log("pippo")
+        setTotal(total - 1)
+        sendElement({
+            "name": "Fall",
+            "value": "2",
+            "goe": "0"
+        })
+    }
     return (
         <div>
             <div className="rowNameAtlete" hidden>
@@ -127,7 +154,8 @@ const DataAtlete = () => {
 
             <div className="buttonNewElement"
                 onClick={() => setShowWizardElement(true)}>+</div>
-
+            <div className="buttonFall"
+                onClick={() => { addFall() }}>FALL</div>
             {(showWizardElement === true ?
                 <div>
                     <div className="wizardElements">
@@ -139,7 +167,8 @@ const DataAtlete = () => {
                             <option value="Combo">Combo</option>
                             <option value="ChSq">ChSq</option>
                             <option value="StSq">StSq</option>
-                            <option value="Trottole">Trottole</option>
+                            <option value="Spin">Spin</option>
+                            <option value="CoSpin">CoSpin</option>
                         </select>
 
                     </div>
@@ -181,8 +210,41 @@ const DataAtlete = () => {
                                     })}
 
                                 </div> :
-                                <div>
-                                </div>)))}
+                                (newElement === "Spin" ?
+                                <div className="elementDetailsContainer">
+                                    {spin.map((s) => {
+                                        return (
+                                            <div className="containerFlex">
+                                                <div>
+                                                    {s.value.map((e) => {
+                                                        return (
+                                                            <div className="elementDetail"
+                                                                onClick={() => addElement(e)}>{e.name}</div>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </div> :
+                                (newElement === "CoSpin" ?
+                                <div className="elementDetailsContainer">
+                                    {spin.map((s) => {
+                                        return (
+                                            <div className="containerFlex">
+                                                <div>
+                                                    {s.value.map((e) => {
+                                                        return (
+                                                            <div className="elementDetail"
+                                                                onClick={() => addElement(e)}>{e.name}</div>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </div> :
+                                 <div></div>)))))}
 
                 </div> :
                 <div></div>
@@ -203,12 +265,12 @@ const DataAtlete = () => {
                             <option value="-1">-1</option>
                             <option value="-2">-2</option>
                         </select>
-                        
+
                     </div>
 
                     {(send === true ? <div
-                        onClick={() => sendElement()} className="buttonSendElement">Send</div> : <div></div>)}
-                    
+                        onClick={() => sendElement({})} className="buttonSendElement">Send</div> : <div></div>)}
+
 
                 </div> :
                 <div></div>
@@ -221,17 +283,20 @@ const DataAtlete = () => {
                         {elementArray.map((ele) => {
 
                             return (
-                                <div className="rowTableElement">
-                                    <div className="cellTableFirstElement">
-                                        {ele.name}
-                                    </div>
-                                    <div className="cellTableElement">
-                                        {ele.goe}
-                                    </div>
-                                    <div className="cellTableElement">
-                                        {ele.value}
-                                    </div>
-                                </div>
+                                (ele.name === "Fall" ?
+                                    <div className="rowTableFall">Fall</div> :
+                                    <div className="rowTableElement">
+                                        <div className="cellTableFirstElement">
+                                            {ele.name}
+                                        </div>
+                                        <div className="cellTableElement">
+                                            {ele.goe}
+                                        </div>
+                                        <div className="cellTableElement">
+                                            {ele.value}
+                                        </div>
+                                    </div>)
+
                             )
                         })}
                         <div className="totalPoint">
