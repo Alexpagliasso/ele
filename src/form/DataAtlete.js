@@ -32,87 +32,74 @@ const DataAtlete = () => {
     const addElement = (e) => {
         setNewElement(false)
         setElement(e)
-        setShowWizardElement(false);
+        //setShowWizardElement(false);
         setShowRecapElement(true);
     }
 
-    const cahngeGOE = (e) => {
-        setGoe(e.target.value);
-        setSend(true);
-    }
-    const changeElementValue = (e) => {
-        if (e.target.value !== "default") {
-            console.log(e.target.value)
-            setNewElement(e.target.value)
-            setShowNewElementDetails(true)
-        } else {
-            setNewElement("")
-        }
-    }
+    
+    
 
     const sendElement = (e) => {
         console.log(e)
 
-        if (e.name === "Fall") {
+        if (e === null) {
             let completeElement = {
-                "name": e.name,
-                "execution": e.value,
-                "goe": goe,
+                "name": "fall",
+                "execution": 0,
+                "goe": e,
             }
             setElementArray([...elementArray, completeElement])
             setShowWizardElement(false);
             setShowRecapElement(false);
             setShowCompleteElement(true);
-            setGoe(0);
-            setSend(false)
         } else {
-            if (goe < 3 && goe > -3) {
+            if (e < 3 && e > -3) {
                 let completeElement = {
                     "name": element.name,
                     "execution": element.value,
-                    "goe": goe,
+                    "goe": e,
                 }
 
-                switch (goe) {
-                    case "2":
+                switch (e) {
+                    case 2:
                         completeElement = {
                             "name": element.name,
                             "value": element.valueGoe2,
-                            "goe": goe
+                            "goe": e
                         }
                         console.log(total)
                         console.log(completeElement.value)
                         setTotal(total + element.valueGoe2)
                         break
-                    case "1":
+                    case 1:
                         completeElement = {
                             "name": element.name,
                             "value": element.valueGoe1,
-                            "goe": goe
+                            "goe": e
                         }
                         setTotal(total + element.valueGoe1)
                         break
-                    case "0":
+                    case 0:
                         completeElement = {
                             "name": element.name,
                             "value": element.value,
-                            "goe": goe
+                            "goe": e
                         }
                         setTotal(total + element.value)
                         break
-                    case "-1":
+                    case -1:
                         completeElement = {
                             "name": element.name,
                             "value": element.valueGoeN1,
-                            "goe": goe
+                            "goe": e
                         }
                         setTotal(total + element.valueGoeN1)
                         break
-                    case "-2":
+                    case -2:
                         completeElement = {
                             "name": element.name,
                             "value": element.valueGoeN2,
-                            "goe": goe
+                            "goe": e
                         }
                         setTotal(total + element.valueGoeN2)
                         break
@@ -123,8 +110,6 @@ const DataAtlete = () => {
                 setShowWizardElement(false);
                 setShowRecapElement(false);
                 setShowCompleteElement(true);
-                setGoe(0);
-                setSend(false)
             } else {
                 alert("Error in the insert data")
             }
@@ -137,11 +122,8 @@ const DataAtlete = () => {
     const addFall = () => {
         console.log("pippo")
         setTotal(total - 1)
-        sendElement({
-            "name": "Fall",
-            "value": "2",
-            "goe": "0"
-        })
+        sendElement(
+        null)
     }
     return (
         <div>
@@ -159,32 +141,24 @@ const DataAtlete = () => {
             {(showWizardElement === true ?
                 <div>
                     <div className="wizardElements">
-                        <label>Elemento</label>
-                        <select
-                            onChange={e => changeElementValue(e)}>
-                            <option value="default">Select an option</option>
-                            <option value="Jump">Jump</option>
-                            <option value="Combo">Combo</option>
-                            <option value="ChSq">ChSq</option>
-                            <option value="StSq">StSq</option>
-                            <option value="Spin">Spin</option>
-                            <option value="CoSpin">CoSpin</option>
-                        </select>
-
+                        <div className="buttonSendElement" onClick={() => setNewElement("Jump")}>Jump</div>
+                        <div className="buttonSendElement" onClick={() => setNewElement("Combo")}>Combo</div>
+                        <div className="buttonSendElement" onClick={() => setNewElement("ChSq")}>ChSq</div>
+                        <div className="buttonSendElement" onClick={() => setNewElement("StSq")}>StSq</div>
+                        <div className="buttonSendElement" onClick={() => setNewElement("Spin")}>Spin</div>
+                        <div className="buttonSendElement" onClick={() => setNewElement("CoSpin")}>CoSpin</div>
                     </div>
                     {(newElement === "Jump" ?
                         <div className="elementDetailsContainer">
                             {jump.map((j) => {
                                 return (
                                     <div className="containerFlex">
-                                        <div>
                                             {j.value.map((e) => {
                                                 return (
                                                     <div className="elementDetail"
                                                         onClick={() => addElement(e)}>{e.name}</div>
                                                 )
                                             })}
-                                        </div>
                                     </div>
                                 )
                             })}
@@ -199,13 +173,12 @@ const DataAtlete = () => {
 
                             </div> :
                             (newElement === "StSq" ?
-                                <div className="elementDetailsContainer">
+                                <div className="elementDetailsContainerInline">
                                     {stepSequence.map((s) => {
                                         return (
-                                            <div className="containerFlex">
                                                 <div className="elementDetail"
                                                     onClick={() => addElement(s)}>{s.name}</div>
-                                            </div>
+                                           
                                         )
                                     })}
 
@@ -215,7 +188,6 @@ const DataAtlete = () => {
                                     {spin.map((s) => {
                                         return (
                                             <div className="containerFlex">
-                                                <div>
                                                     {s.value.map((e) => {
                                                         return (
                                                             <div className="elementDetail"
@@ -223,7 +195,6 @@ const DataAtlete = () => {
                                                         )
                                                     })}
                                                 </div>
-                                            </div>
                                         )
                                     })}
                                 </div> :
@@ -232,7 +203,6 @@ const DataAtlete = () => {
                                     {comboSpin.map((s) => {
                                         return (
                                             <div className="containerFlex">
-                                                <div>
                                                     {s.value.map((e) => {
                                                         return (
                                                             <div className="elementDetail"
@@ -240,7 +210,6 @@ const DataAtlete = () => {
                                                         )
                                                     })}
                                                 </div>
-                                            </div>
                                         )
                                     })}
                                 </div> :
@@ -255,24 +224,16 @@ const DataAtlete = () => {
                     <p className="elementRecap">
                         Element: {element.name}
                     </p>
-                    <div className="elementRecap">
-                        <label>Goe: </label>
-                        <select onChange={e => cahngeGOE(e)}>
-                            <option default value="3">Select an option</option>
-                            <option value="2">2</option>
-                            <option value="1">1</option>
-                            <option value="0">0</option>
-                            <option value="-1">-1</option>
-                            <option value="-2">-2</option>
-                        </select>
+
+                        <div className="goeButton" onClick={() => sendElement(2)}>2</div>
+                        <div className="goeButton" onClick={() => sendElement(1)}>1</div>
+                        <div className="goeButton" onClick={() => sendElement(0)}>0</div>
+                        <div className="goeButton" onClick={() => sendElement(-1)}>-1</div>
+                        <div className="goeButton" onClick={() => sendElement(-2)}>-2</div>
 
                     </div>
 
-                    {(send === true ? <div
-                        onClick={() => sendElement({})} className="buttonSendElement">Send</div> : <div></div>)}
-
-
-                </div> :
+ :
                 <div></div>
             )}
 
@@ -283,7 +244,7 @@ const DataAtlete = () => {
                         {elementArray.map((ele) => {
 
                             return (
-                                (ele.name === "Fall" ?
+                                (ele.name === "fall" ?
                                     <div className="rowTableFall">Fall</div> :
                                     <div className="rowTableElement">
                                         <div className="cellTableFirstElement">

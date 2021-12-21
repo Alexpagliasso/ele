@@ -15,11 +15,11 @@
     cursor: pointer
 }
 
-.wizardElements,
-.wizardElements select {
+.wizardElements {
+    display: flex;
+    justify-content: space-between;
     margin-top: 30px;
     font-size: 1.5rem;
-    margin-left: 10px;
 }
 
 .buttonSendElement {
@@ -30,31 +30,52 @@
     line-height: 30px;
     font-size: 20px;
     cursor: pointer;
-    margin-left: 10px;
     padding: 10px;
+    min-width: 10%
 }
 
 .elementDetailsContainer {
     display: flex;
+    width: 100%;
+    flex-direction: column;
     justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
 }
 
 .containerFlex {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+}
+
+.elementDetailsContainerInline {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.columnDetail {
+    display: flex;
+    width: 10%;
 }
 
 .elementDetail {
     background-color: blue;
     color: white;
     border-radius: 5px;
-    padding: 10px;
-    min-width: 50px;
+    padding: 20px 20px;
+    min-width: 10%;
     margin-top: 30px;
     margin-bottom: 30px;
     cursor: pointer;
+}
+
+.goeButton {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 5%
 }
 
 .elementDetail:hover {
@@ -104,16 +125,14 @@
     margin-top: 20px;
 }
 
-.elementRecap {
-    margin: 0 20px;
+.elementRecapText {
     font-size: 2rem;
-    display: flex;
-    align-items: center;
 }
 
-.elementRecap select {
-    font-size: 1.5rem;
-    margin-left: 10px;
+.elementRecap {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
 }
 
 .buttonFall {
