@@ -153,3 +153,27 @@
     border: 1px solid #333;
     line-height: 40px;
 }
+
+.containerComponent {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.component {
+    background-color: darkgray;
+    min-width: 25%;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonComponent {
+    background-color: darksalmon;
+    padding: 15px;
+    min-width: 2%;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}

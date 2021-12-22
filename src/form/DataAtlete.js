@@ -9,7 +9,7 @@ import ComboSpin from "./json/ComboSpin.json";
 
 const DataAtlete = () => {
     const [newElement, setNewElement] = useState(" ");
-    const [showWizardElement, setShowWizardElement] = useState(false);
+    const [showWizardElement, setShowWizardElement] = useState(true);
     const [showNewElementDetails, setShowNewElementDetails] = useState(false);
     const [goe, setGoe] = useState(0);
     const [element, setElement] = useState({});
@@ -22,6 +22,9 @@ const DataAtlete = () => {
     }]);
     const [total, setTotal] = useState(0);
     const [send, setSend] = useState(false);
+    const [component, setComponent] = useState(false)
+    const arrayComponent = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10]
+    const [componentPerformanceValue, setComponentPerformanceValue] = useState(0)
 
     let jump = Jump
     let sequence = Sequence
@@ -36,8 +39,12 @@ const DataAtlete = () => {
         setShowRecapElement(true);
     }
 
-    
-    
+    const setComponentValue = (c) => {
+        setComponentPerformanceValue(c);
+        setComponent(false)
+    }
+
+
 
     const sendElement = (e) => {
         console.log(e)
@@ -49,9 +56,9 @@ const DataAtlete = () => {
                 "goe": e,
             }
             setElementArray([...elementArray, completeElement])
-            setShowWizardElement(false);
             setShowRecapElement(false);
             setShowCompleteElement(true);
+            setSend(true)
         } else {
             if (e < 3 && e > -3) {
                 let completeElement = {
@@ -107,9 +114,9 @@ const DataAtlete = () => {
 
 
                 setElementArray([...elementArray, completeElement])
-                setShowWizardElement(false);
                 setShowRecapElement(false);
                 setShowCompleteElement(true);
+                setSend(true)
             } else {
                 alert("Error in the insert data")
             }
@@ -123,7 +130,7 @@ const DataAtlete = () => {
         console.log("pippo")
         setTotal(total - 1)
         sendElement(
-        null)
+            null)
     }
     return (
         <div>
@@ -134,8 +141,6 @@ const DataAtlete = () => {
                 <input type="text"></input>
             </div>
 
-            <div className="buttonNewElement"
-                onClick={() => setShowWizardElement(true)}>+</div>
             <div className="buttonFall"
                 onClick={() => { addFall() }}>FALL</div>
             {(showWizardElement === true ?
@@ -153,12 +158,12 @@ const DataAtlete = () => {
                             {jump.map((j) => {
                                 return (
                                     <div className="containerFlex">
-                                            {j.value.map((e) => {
-                                                return (
-                                                    <div className="elementDetail"
-                                                        onClick={() => addElement(e)}>{e.name}</div>
-                                                )
-                                            })}
+                                        {j.value.map((e) => {
+                                            return (
+                                                <div className="elementDetail"
+                                                    onClick={() => addElement(e)}>{e.name}</div>
+                                            )
+                                        })}
                                     </div>
                                 )
                             })}
@@ -176,18 +181,18 @@ const DataAtlete = () => {
                                 <div className="elementDetailsContainerInline">
                                     {stepSequence.map((s) => {
                                         return (
-                                                <div className="elementDetail"
-                                                    onClick={() => addElement(s)}>{s.name}</div>
-                                           
+                                            <div className="elementDetail"
+                                                onClick={() => addElement(s)}>{s.name}</div>
+
                                         )
                                     })}
 
                                 </div> :
                                 (newElement === "Spin" ?
-                                <div className="elementDetailsContainer">
-                                    {spin.map((s) => {
-                                        return (
-                                            <div className="containerFlex">
+                                    <div className="elementDetailsContainer">
+                                        {spin.map((s) => {
+                                            return (
+                                                <div className="containerFlex">
                                                     {s.value.map((e) => {
                                                         return (
                                                             <div className="elementDetail"
@@ -195,25 +200,25 @@ const DataAtlete = () => {
                                                         )
                                                     })}
                                                 </div>
-                                        )
-                                    })}
-                                </div> :
-                                (newElement === "CoSpin" ?
-                                <div className="elementDetailsContainer">
-                                    {comboSpin.map((s) => {
-                                        return (
-                                            <div className="containerFlex">
-                                                    {s.value.map((e) => {
-                                                        return (
-                                                            <div className="elementDetail"
-                                                                onClick={() => addElement(e)}>{e.name}</div>
-                                                        )
-                                                    })}
-                                                </div>
-                                        )
-                                    })}
-                                </div> :
-                                 <div></div>)))))}
+                                            )
+                                        })}
+                                    </div> :
+                                    (newElement === "CoSpin" ?
+                                        <div className="elementDetailsContainer">
+                                            {comboSpin.map((s) => {
+                                                return (
+                                                    <div className="containerFlex">
+                                                        {s.value.map((e) => {
+                                                            return (
+                                                                <div className="elementDetail"
+                                                                    onClick={() => addElement(e)}>{e.name}</div>
+                                                            )
+                                                        })}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div> :
+                                        <div></div>)))))}
 
                 </div> :
                 <div></div>
@@ -224,16 +229,14 @@ const DataAtlete = () => {
                     <p className="elementRecap">
                         Element: {element.name}
                     </p>
+                    <div className="goeButton" onClick={() => sendElement(2)}>2</div>
+                    <div className="goeButton" onClick={() => sendElement(1)}>1</div>
+                    <div className="goeButton" onClick={() => sendElement(0)}>0</div>
+                    <div className="goeButton" onClick={() => sendElement(-1)}>-1</div>
+                    <div className="goeButton" onClick={() => sendElement(-2)}>-2</div>
+                </div>
 
-                        <div className="goeButton" onClick={() => sendElement(2)}>2</div>
-                        <div className="goeButton" onClick={() => sendElement(1)}>1</div>
-                        <div className="goeButton" onClick={() => sendElement(0)}>0</div>
-                        <div className="goeButton" onClick={() => sendElement(-1)}>-1</div>
-                        <div className="goeButton" onClick={() => sendElement(-2)}>-2</div>
-
-                    </div>
-
- :
+                :
                 <div></div>
             )}
 
@@ -259,9 +262,25 @@ const DataAtlete = () => {
                                     </div>)
 
                             )
-                        })}
+                        })}{(send === true ?
+                            <div className="containerComponent">
+                                <div className="component" onClick={() => setComponent(true)}>Comp</div>
+                                <div className="component" onClick={() => setComponent(true)}>Elem</div>
+
+                            </div> :
+                            <div></div>)}
+                        {(component === true ?
+                            <div className="containerComponent">
+                                {arrayComponent.map((c) => {
+                                    return (
+                                        <div className="buttonComponent" onClick={() => {setComponentValue(c)}}>{c}</div>
+                                    )
+                                })}
+                            </div> :
+                            <div></div>)}
                         <div className="totalPoint">
-                            Total: {total}
+                            Total: {total} <br></br>
+                            Component: {componentPerformanceValue}
                         </div>
                     </div> :
                     <div></div>)
