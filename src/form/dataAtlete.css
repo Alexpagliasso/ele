@@ -104,6 +104,13 @@
     width: 25%;
 }
 
+.deleteCol {
+    padding: 10px;
+    border: solid 1px #333;
+    cursor: pointer;
+    background-color: red;
+}
+
 .cellTableFirstElement {
     padding: 10px;
     border: solid 1px #333;

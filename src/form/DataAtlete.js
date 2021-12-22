@@ -132,6 +132,16 @@ const DataAtlete = () => {
         sendElement(
             null)
     }
+
+
+    const deleteElement = (e) => {
+        console.log(e)
+        elementArray.forEach((ele , index) => {
+            if(e.name === ele.name) {
+                elementArray.splice(index, 1)
+            } 
+        })
+    }
     return (
         <div>
             <div className="rowNameAtlete" hidden>
@@ -259,6 +269,9 @@ const DataAtlete = () => {
                                         <div className="cellTableElement">
                                             {ele.value}
                                         </div>
+                                        <div className="deleteCol" onClick={() => deleteElement(ele)}>
+                                            X
+                                        </div>
                                     </div>)
 
                             )
@@ -273,7 +286,7 @@ const DataAtlete = () => {
                             <div className="containerComponent">
                                 {arrayComponent.map((c) => {
                                     return (
-                                        <div className="buttonComponent" onClick={() => {setComponentValue(c)}}>{c}</div>
+                                        <div className="buttonComponent" onClick={() => { setComponentValue(c) }}>{c}</div>
                                     )
                                 })}
                             </div> :
